@@ -1,27 +1,35 @@
 
-def generator_numbers(text: str):
-    for i in text:
-        if i.isdigit():
-            yield int(i)
+def generator_numbers(text:str): # define generator number function
+    args = text.split(' ')
+    print(args)
+    numbers = [] 
+    for word in args:    
+        if is_digit(word) == True:             
+            numbers.append(word)
+    return numbers
 
-def generator_letters(text: str):
-    for i in text:
-        if i.isalpha():
-            yield i
+def is_digit(string): # define function for check digit or not a word
+    if string.isdigit():
+       return True
+    else:
+        try:
+            float(string)
+            return True
+        except ValueError:
+            return False
 
-def generator_punctuation(text: str):
-    for i in text:
-        if not i.isalnum():
-            yield i 
+def sum_profit(text: str, func: str): # define function for sum profit
+    summ = 0
+    nums = func(text)
+    for num in nums:
+        summ += float(num)
+    return summ    
 
 def main():
-    text = "Hello 123 World!"
-    numbers = generator_numbers(text)
-    letters = generator_letters(text)
-    punctuation = generator_punctuation(text)   
-    print(list(numbers))
-    print(list(letters))
-    print(list(punctuation))
+    text = "Загальний дохід працівника складається з декількох частин: 1000.01 як основний дохід, доповнений додатковими надходженнями 27.45 і 324.00 доларів." # string for check 
+    total_income = sum_profit(text, generator_numbers) # call the function
+    print(f"Загальний дохід: {total_income}") # print result
+    
 
 if __name__ == "__main__":
     main()
