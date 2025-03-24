@@ -8,7 +8,7 @@ def generator_numbers(text:str): # define generator number function
             numbers.append(word)
     return numbers
 
-def is_digit(string): # define function for check digit or not a word
+def is_digit(string): # define function for check word is digit or not 
     if string.isdigit():
        return True
     else:
