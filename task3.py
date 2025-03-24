@@ -1,6 +1,5 @@
 import sys
 import os
-from typing import Callable
 from collections import Counter
 
 def read_log_file(file_path): # define function for reading log file
