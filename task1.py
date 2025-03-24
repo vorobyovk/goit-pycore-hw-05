@@ -24,7 +24,12 @@ def caching_fibonacci(user_number):  # Function to calculate fibonacci numbers
         cache[n] = fibonacci(n-1) + fibonacci(n-2)        
         return cache[n] 
     fibonacci(n)
-    fib_nums = cache[user_number]
+    if user_number <= 0:
+        fib_nums = 0
+    elif user_number == 1:
+        fib_nums = 1
+    else:
+        fib_nums = cache[user_number]
     return fib_nums # Return the result of the fibonacci function
         
 def main(): # Main function
